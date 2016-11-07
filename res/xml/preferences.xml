@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+ 
+    <CheckBoxPreference 
+        android:defaultValue="true"
+        android:key="block"
+        android:summary="Check if you want to block any incoming calls and SMS"
+        android:title="Block Call and SMS" />
+    
+    <sp.com.TimePreferences
+        android:defaultValue="12:00"
+        android:dependency="block"
+        android:key="block_start_time"
+        android:summary="Start blocking from :"
+        android:title="Blocking Time Start" />
+    
+    <sp.com.TimePreferences
+        android:defaultValue="12:00"
+        android:dependency="block"
+        android:key="block_end_time"
+        android:summary="Stop blocking at :"
+        android:title="Blocking Time End" />
+    
+    <CheckBoxPreference 
+        android:dependency="block"
+        android:key="send_reply_sms"
+        android:summary="Check if you want to sent an auto-reply message back to incoming calls and SMS"
+        android:title="Reply Message" />
+    
+    <EditTextPreference
+        android:dependency="send_reply_sms"
+        android:dialogTitle="Message Content"
+        android:key="reply_message"
+        android:summary="Message will be sent back in reply to miscalls and SMSes"
+        android:title="Message Content" />
+    
+</PreferenceScreen>
